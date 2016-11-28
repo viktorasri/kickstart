@@ -13,9 +13,11 @@ services:
     user: "1000:1000"
     links:
       - mariadb
+    expose:
+      - "4444"
     volumes:
       # Uncomment if you want cache composer stuff
-      #- ".docker/.composer:/.composer"
+      - ".docker/.composer:/.composer"
       - ".docker:/home"
       - "./:/var/www"
   npm:
