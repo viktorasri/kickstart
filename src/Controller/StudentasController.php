@@ -4,6 +4,7 @@ namespace App\Controller;
 
 use Symfony\Component\Routing\Annotation\Route;
 use Symfony\Bundle\FrameworkBundle\Controller\Controller;
+use Symfony\Component\HttpFoundation\JsonResponse;
 
 class StudentasController extends Controller
 {
@@ -23,4 +24,12 @@ class StudentasController extends Controller
             ],
         ]);
     }
+
+    /**
+     * @Route("/testas/123", name="testas")
+     */
+    public function testas() {
+        return new JsonResponse(['kazkas' => 'veikia']);
+    }
+    // patogu prasitestuoti su: bin/console debug:router
 }
