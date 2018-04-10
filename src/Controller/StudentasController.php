@@ -8,7 +8,7 @@ use Symfony\Bundle\FrameworkBundle\Controller\Controller;
 class StudentasController extends Controller
 {
     /**
-     * @Route("/studentas", name="studentas")
+     * @Route("/studentas2", name="studentas")
      */
     public function index()
     {
