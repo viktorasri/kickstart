@@ -13,7 +13,7 @@
     Klausimu: {{ klausimu }}
     </div>
     {% for elementas in sudetingas %}
-        <li>{{ elementas }}</li>
+        <li><a href="/#elementas-{{ elementas|url_encode }}">{{ elementas }}</a></li>
     {% endfor %}
 
 

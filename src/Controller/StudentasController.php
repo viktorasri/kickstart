@@ -18,7 +18,8 @@ class StudentasController extends Controller
                 'vienas',
                 'du',
                 'trys',
-                 "visi ' norintys <b>nualaužti</b> puslapi"
+                 "visi ' norintys <b>nualaužti</b> puslapi",
+//                file_get_content('mano.html') // Šitam verta būtų naudoti "|raw" twig'e
             ],
         ]);
     }
