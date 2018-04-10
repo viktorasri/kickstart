@@ -13,7 +13,13 @@ class StudentasController extends Controller
     public function index()
     {
         return $this->render('studentas/index.html.twig', [
-            'controller_name' => 'StudentasController',
+            'klausimu' => 123,
+            'sudetingas' => [
+                'vienas',
+                'du',
+                'trys',
+                "visi ' norintys <b>nualaužti</b> puslapi"
+            ],
         ]);
     }
 }

@@ -1,6 +1,6 @@
 {% extends 'base.html.twig' %}
 
-{% block title %}Hello {{ controller_name }}!{% endblock %}
+{% block title %}Hello {{ controller_name|default('testas')|upper }}!{% endblock %}
 
 {% block stylesheets %}
 {{ parent() }}
@@ -9,4 +9,8 @@
 
 {% block body %}
 Čia kažkur bus sąrašas
+    Klausimu: {{ klausimu }}
+
+
+
 {% endblock %}
