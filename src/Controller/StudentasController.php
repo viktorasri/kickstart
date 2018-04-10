@@ -5,16 +5,20 @@ namespace App\Controller;
 use Symfony\Component\Routing\Annotation\Route;
 use Symfony\Bundle\FrameworkBundle\Controller\Controller;
 use Symfony\Component\HttpFoundation\JsonResponse;
+use Symfony\Component\HttpFoundation\Request;
 
 class StudentasController extends Controller
 {
     /**
      * @Route("/studentas2", name="studentas")
      */
-    public function index()
+    public function index(Request $myRequest)
     {
+        $source = $myRequest->get('utm_source', 'Nieko');
+
         return $this->render('studentas/index.html.twig', [
             'klausimu' => 123,
+            'isUrl' => $source,
             'sudetingas' => [
                 'vienas',
                 'du',
