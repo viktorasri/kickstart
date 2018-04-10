@@ -25,7 +25,9 @@
     Pirmas pakeitimas
     <div class="title">NFQ Akademija</div>
 
-    <a href="{{ path('studentas') }}">Studetų puslapis</a>
-    <a href="{{ path('kompas') }}">Studetų puslapis</a>
-    <a href="{{ path('home') }}">Studetų puslapis</a>
+    {% block navigation %}
+    [
+        {{ parent() }}
+    ]
+    {% endblock %}
 {% endblock %}

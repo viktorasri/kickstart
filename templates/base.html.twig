@@ -15,5 +15,11 @@
         {% block javascripts %}
             <script src="{{ asset('build/js/app.js') }}"></script>
         {% endblock %}
+
+        {% block navigation %}
+        <a href="{{ path('studentas') }}">Studetų puslapis</a>
+        <a href="{{ path('kompas') }}">Kompas</a>
+        <a href="{{ path('home') }}">Pagrindinis</a>
+        {% endblock %}
     </body>
 </html>
