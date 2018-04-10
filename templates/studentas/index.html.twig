@@ -9,8 +9,12 @@
 
 {% block body %}
 Čia kažkur bus sąrašas
+    <div>
     Klausimu: {{ klausimu }}
-
+    </div>
+    {% for elementas in sudetingas %}
+        <li>{{ elementas }}</li>
+    {% endfor %}
 
 
 {% endblock %}
