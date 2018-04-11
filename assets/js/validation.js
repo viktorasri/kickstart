@@ -7,7 +7,9 @@ const validateName = function () {
     axios.post(validationResult.dataset.path, {input: name.value})
         .then(function(response) {
             if (response.data.valid) {
-                validationResult.innerHtml = "&#10004;";
+                validationResult.innerText = ":)";
+            } else {
+                validationResult.innerText = ":(";
             }
         })
         .catch(function (error) {
