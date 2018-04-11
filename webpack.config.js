@@ -1,4 +1,5 @@
-var Encore = require('@symfony/webpack-encore');
+const Encore = require('@symfony/webpack-encore');
+const EmitFile = require('./tools/webpack-plugins/EmitFile');
 
 Encore
     // the project directory where compiled assets will be stored
@@ -20,6 +21,14 @@ Encore
     // uncomment if you use Sass/SCSS files
     .enableSassLoader()
     .enableReactPreset()
+
+    // Custom WebPack plugin
+    .addPlugin(
+        new EmitFile(
+            'version.json',
+            {'date': (new Date()).toISOString()}
+        )
+    )
 
     // uncomment for legacy applications that require $/jQuery as a global variable
     // .autoProvidejQuery()
