@@ -5,6 +5,7 @@ namespace App\Controller;
 use Sensio\Bundle\FrameworkExtraBundle\Configuration\Method;
 use Symfony\Bundle\FrameworkBundle\Controller\Controller;
 use Symfony\Component\HttpFoundation\JsonResponse;
+use Symfony\Component\HttpFoundation\Request;
 use Symfony\Component\HttpFoundation\Response;
 use Symfony\Component\Routing\Annotation\Route;
 
@@ -24,11 +25,17 @@ class PeopleController extends Controller
      * @Route("/validate/{element}", name="validatePerson")
      * @Method({"POST"})
      */
-    public function validate($element)
+    public function validate(Request $request, $element)
     {
+        try {
+            $input = json_decode($request->getContent(), true)['input'];
+        } catch (\Exception $e) {
+            return new JsonResponse(['error' => 'Invalid method'], Response::HTTP_BAD_REQUEST);
+        }
+
         switch ($element) {
             case 'name':
-                return new JsonResponse(['valid' => true]);
+                return new JsonResponse(['valid' => true, 'input' => $input]);
         }
 
         return new JsonResponse(['error' => 'Invalid method'], Response::HTTP_BAD_REQUEST);
@@ -89,7 +96,7 @@ class PeopleController extends Controller
         $storage = $this->getStorage();
         foreach ($storage as $teamData) {
             foreach ($teamData['members'] as $student) {
-                $students[] = $student;
+                $students[] = strtolower($student);
             }
         }
         return $students;
