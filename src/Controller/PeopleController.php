@@ -93,7 +93,7 @@ class PeopleController extends Controller
 
     private function getStudents() {
         $students = [];
-        $storage = $this->getStorage();
+        $storage = json_decode($this->getStorage(), true);
         foreach ($storage as $teamData) {
             foreach ($teamData['members'] as $student) {
                 $students[] = strtolower($student);
