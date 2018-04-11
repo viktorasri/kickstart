@@ -27,7 +27,7 @@ class PeopleController extends Controller
     public function validate($element)
     {
         switch ($element) {
-            case 'Name':
+            case 'name':
                 return new JsonResponse(['valid' => true]);
         }
 
