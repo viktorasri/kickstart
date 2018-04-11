@@ -16,6 +16,9 @@ Encore
         './assets/js/app.js',
         './assets/js/react.jsx'
     ])
+    .addEntry('js/validation',
+        './assets/js/validation.js'
+    )
     .addStyleEntry('css/app', './assets/css/app.scss')
 
     // uncomment if you use Sass/SCSS files
