@@ -33,4 +33,66 @@ class PeopleController extends Controller
 
         return new JsonResponse(['error' => 'Invalid method'], Response::HTTP_BAD_REQUEST);
     }
+
+    private function getStorage()
+    {
+        return /** @lang json */
+        '{
+          "Po pamok\u0173": {
+            "mentor": "Tomas",
+            "members": [
+              "Elena",
+              "Just\u0117",
+              "Deimantas"
+            ]
+          },
+          "Tech Guide": {
+            "mentor": "Sergej",
+            "members": [
+              "Matas",
+              "Martynas"
+            ]
+          },
+          "Kelion\u0117s draugas": {
+            "mentor": "Rokas",
+            "members": [
+              "Zbignev",
+              "Aist\u0117"
+            ]
+          },
+          "Wish A Gift": {
+            "mentor": "Aistis",
+            "members": [
+              "Nerijus",
+              "Olga"
+            ]
+          },
+          "Mums pakeliui": {
+            "mentor": "Paulius",
+            "members": [
+              "Egl\u0117",
+              "Svetlana"
+            ]
+          },
+          "Motyvacin\u0117 platforma": {
+            "mentor": "Audrius",
+            "members": [
+              "Viktoras",
+              "Airidas"
+            ]
+          }
+        }';
+    }
+
+    private function getStudents() {
+        $students = [];
+        $storage = $this->getStorage();
+        foreach ($storage as $teamData) {
+            foreach ($teamData['members'] as $student) {
+                $students[] = $student;
+            }
+        }
+        return $students;
+    }
 }
+
