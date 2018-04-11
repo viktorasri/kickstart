@@ -8,3 +8,11 @@
     Versija <b id="version">...</b>
 </div>
 {% endblock %}
+
+{% block javascripts %}
+    <script>
+        var needVersion = true;
+        var needReact = true;
+    </script>
+    {{ parent() }}
+{% endblock %}
