@@ -1,10 +1,11 @@
 require('bootstrap');
 const axios = require('axios');
 
+let versionElement = document.getElementById('version');
 axios.get('/build/version.json')
     .then(function(response) {
-        console.log(response.data);
+        versionElement.innerText = response.data.date;
     })
     .catch(function (error) {
-        console.error(error);
+        versionElement.innerText = 'Error: ' . error;
     });
