@@ -7,6 +7,8 @@
 <div>
     Versija <b id="version">...</b>
 </div>
+
+    <input type="text" id="name"/><span id="validation-result"></span>
 {% endblock %}
 
 {% block javascripts %}
@@ -14,5 +16,6 @@
         var needVersion = true;
         var needReact = true;
     </script>
+    <script src="{{ asset('build/js/validation.js') }}"></script>
     {{ parent() }}
 {% endblock %}
