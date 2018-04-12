@@ -2,6 +2,8 @@
 
 Paskaitos užrašai
 
+https://git-scm.com/docs/git-cherry-pick
+
 NFQ Akademija
 ============
 
