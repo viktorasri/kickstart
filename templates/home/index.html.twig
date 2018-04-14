@@ -23,4 +23,16 @@
 
 {% block body %}
     <div class="title">NFQ Akademija</div>
+    <img src="{{ url }}"/>
+    {{ url }}
+
+
+    <hr/>
+    <div>Code: {{ code }}</div>
+    <pre>{{ dump(valid) }}</pre>
+    <hr/>
+    <form action="/">
+        <input type="text" name="code">
+        <input type="submit">
+    </form>
 {% endblock %}
