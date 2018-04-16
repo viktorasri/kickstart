@@ -6,7 +6,7 @@ security:
                 users:
                     admin:
                         password: asaKUREAJASngMFPmje
-                        roles: 'ROLE_ADMIN'
+                        roles: ['ROLE_ADMIN', 'ROLE_ALLOWED_TO_SWITCH']
                     mentorius:
                         password: asfsfasMENTORIUSc34ac7068f6f1
                         roles: 'ROLE_MENTORIUS'
@@ -19,6 +19,10 @@ security:
             pattern: ^/(_(profiler|wdt)|css|images|js)/
             security: false
         main:
+            logout:
+                path:   logout
+                target: /
+                invalidate_session: false
             anonymous: true
             http_basic: ~
 
