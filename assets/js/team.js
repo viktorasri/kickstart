@@ -1,11 +1,11 @@
 const axios = require('axios');
 
-let name = document.getElementById('name');
-let validationResult = document.getElementById('validation-result');
-const validateName = function () {
-    console.log(name.value)
+let team = document.getElementById('team');
+let validationResult = document.getElementById('teamValidation');
+const validateTeam = function () {
+    console.log(team.value)
     validationResult.innerText = '...';
-    axios.post(validationResult.dataset.path, {input: name.value})
+    axios.post(validationResult.dataset.path, {input: team.value})
         .then(function(response) {
             if (response.data.valid) {
                 validationResult.innerText = ":)";
@@ -18,5 +18,5 @@ const validateName = function () {
         });
 };
 
-name.onkeyup = validateName;
-name.onchange = validateName;
+team.onkeyup = validateTeam;
+team.onchange = validateTeam;

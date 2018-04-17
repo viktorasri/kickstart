@@ -19,6 +19,14 @@ Encore
     .addEntry('js/validation',
         './assets/js/validation.js'
     )
+
+    .addEntry('js/team',
+        './assets/js/team.js'
+    )
+
+
+
+
     .addStyleEntry('css/app', './assets/css/app.scss')
 
     // uncomment if you use Sass/SCSS files

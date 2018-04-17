@@ -8,8 +8,27 @@
     Versija <b id="version">...</b>
 </div>
 
-    <input type="text" id="name"/>
-    <span id="validation-result" data-path="{{ path('validatePerson', {'element': 'name'}) }}"></span>
+
+    <div class="container">
+        <ul class="list-group">
+            <li class="list-group-item col-md-6">
+                <input id="name" type="text" class="form-control" placeholder="Studentas" style="width: 80%; display: inline-block">
+                <span id="validation-result" class="ml-3" data-path="{{ path('validatePerson', {'element': 'name'}) }}"></span>
+            </li>
+
+            <li class="list-group-item col-md-6">
+                <input id="team" type="text" class="form-control" placeholder="Komanda" style="width: 80%; display: inline-block">
+                <span id="teamValidation" class="ml-3" data-path="{{ path('validateTeam', {'element': 'team'}) }}"></span>
+            </li>
+
+
+
+        </ul>
+    </div>
+
+
+
+
 {% endblock %}
 
 {% block javascripts %}
@@ -18,5 +37,6 @@
         var needReact = true;
     </script>
     <script src="{{ asset('build/js/validation.js') }}"></script>
+    <script src="{{ asset('build/js/team.js') }}"></script>
     {{ parent() }}
 {% endblock %}

@@ -42,6 +42,35 @@ class PeopleController extends Controller
         return new JsonResponse(['error' => 'Invalid method'], Response::HTTP_BAD_REQUEST);
     }
 
+    /**
+     * @Route("/team/{element}", name="validateTeam")
+     * @Method({"POST"})
+     */
+
+    public function team(Request $request, $element)
+    {
+        try {
+            $input = json_decode($request->getContent(), true)['input'];
+        } catch (\Exception $e) {
+            return new JsonResponse(['error' => 'Invalid method'], Response::HTTP_BAD_REQUEST);
+        }
+
+        $teams = $this->getTeams();
+        switch ($element) {
+            case 'team':
+                return new JsonResponse(['valid' => in_array(strtolower($input), $teams)]);
+        }
+
+        return new JsonResponse(['error' => 'Invalid method'], Response::HTTP_BAD_REQUEST);
+    }
+
+
+
+
+
+
+
+
     private function getStorage()
     {
         return /** @lang json */
@@ -101,6 +130,15 @@ class PeopleController extends Controller
             }
         }
         return $students;
+    }
+
+    private function getTeams() {
+        $team = [];
+        $storage = json_decode($this->getStorage(), true);
+        foreach ($storage as $teamData) {
+                $team[] = strtolower($teamData);
+        }
+        return $team;
     }
 }
 
