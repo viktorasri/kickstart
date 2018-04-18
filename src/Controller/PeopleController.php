@@ -66,11 +66,6 @@ class PeopleController extends Controller
 
 
 
-
-
-
-
-
     private function getStorage()
     {
         return /** @lang json */
@@ -135,9 +130,13 @@ class PeopleController extends Controller
     private function getTeams() {
         $team = [];
         $storage = json_decode($this->getStorage(), true);
-        foreach ($storage as $teamData) {
-                $team[] = strtolower($teamData);
+
+        foreach ($storage as $teamName => $teamData) {
+            $team[] = strtolower($teamName);
+
+
         }
+
         return $team;
     }
 }
