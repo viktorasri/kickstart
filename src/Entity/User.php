@@ -24,6 +24,59 @@ class User extends BaseUser
 
     protected  $firstName;
 
+
+
+    /**
+     * @ORM\Column(type="string")
+     */
+
+    protected  $website;
+
+    /**
+     * @return mixed
+     */
+    public function getWebsite()
+    {
+        return $this->website;
+    }
+
+    /**
+     * @param mixed $website
+     */
+    public function setWebsite($website): void
+    {
+        $this->website = $website;
+    }
+
+
+    /**
+     * @ORM\Column(type="string")
+     */
+
+    protected  $linkedit;
+
+    /**
+     * @return mixed
+     */
+    public function getLinkedit()
+    {
+        return $this->linkedit;
+    }
+
+    /**
+     * @param mixed $linkedit
+     */
+    public function setLinkedit($linkedit): void
+    {
+        $this->linkedit = $linkedit;
+    }
+
+
+
+
+
+
+
     /**
      * @return mixed
      */
