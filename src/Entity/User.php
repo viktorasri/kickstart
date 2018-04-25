@@ -53,22 +53,22 @@ class User extends BaseUser
      * @ORM\Column(type="string")
      */
 
-    protected  $linkedit;
+    protected  $linkedin;
 
     /**
      * @return mixed
      */
-    public function getLinkedit()
+    public function getLinkedin()
     {
-        return $this->linkedit;
+        return $this->linkedin;
     }
 
     /**
-     * @param mixed $linkedit
+     * @param mixed $linkedin
      */
-    public function setLinkedit($linkedit): void
+    public function setLinkedin($linkedin): void
     {
-        $this->linkedit = $linkedit;
+        $this->linkedin = $linkedin;
     }
 
 

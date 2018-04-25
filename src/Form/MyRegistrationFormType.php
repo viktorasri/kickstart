@@ -6,6 +6,7 @@ use FOS\UserBundle\Form\Type\RegistrationFormType;
 use Symfony\Component\Form\AbstractType;
 use Symfony\Component\Form\FormBuilderInterface;
 use Symfony\Component\Form\Extension\Core\Type\TextType;
+use Symfony\Component\Form\Extension\Core\Type\UrlType;
 use Symfony\Component\OptionsResolver\OptionsResolver;
 
 class MyRegistrationFormType extends AbstractType
@@ -14,13 +15,17 @@ class MyRegistrationFormType extends AbstractType
     {
         $builder
             ->add('firstName',TextType::class)
+            ->add('website',UrlType::class)
+            ->add('linkedin',UrlType::class)
         ;
     }
 
     public function configureOptions(OptionsResolver $resolver)
     {
         $resolver->setDefaults([
-            'firstName' => ''
+            'firstName' => '',
+            'website' => '',
+            'linkedin' => ''
         ]);
     }
 
