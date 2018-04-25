@@ -9,17 +9,35 @@
             Hello, {{ app.user.username }}
             {% if 'ROLE_ADMIN' in app.user.roles %}
                 <button class="btn btn-primary">Edit</button>
+                <button class="btn btn-info">Comment</button>
+                <button class="btn btn-info">Delete</button>
             {% endif %}
             {% if 'ROLE_EDITOR' in app.user.roles %}
                 <button class="btn btn-info">Comment</button>
             {% endif %}
         </div>
         {% if app.user.firstName %}
-            <div class="h2">
-                <a href="{{ app.user.firstName }}">{{ app.user.firstName }}</a>
-                <span class="badge badge-secondary">First Name</span>
-            </div>
+                <h1 class="h1">{{ app.user.firstName }}  - very cool first name!!</h1>
+
         {% endif %}
+
+        {% if app.user.website %}
+                <div class="list-group-item">
+                    <a class="h2" href="{{ app.user.website }}" class="btn btn-link">{{ app.user.website }}
+                        <span class="badge badge-info ml-5">Website URL</span>
+                    </a>
+                </div>
+        {% endif %}
+
+        {% if app.user.linkedin %}
+                <div class="list-group-item">
+                    <a class="h2"  href="{{ app.user.linkedin }}" class="btn btn-link">{{ app.user.linkedin }}
+                        <span class="badge badge-info ml-5">Linkedin profile URL</span>
+                    </a>
+                </div>
+        {% endif %}
+
+
     </div>
 
 
