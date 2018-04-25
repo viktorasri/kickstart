@@ -1,20 +1,29 @@
 {% extends 'base.html.twig' %}
 
-{% block title %}Hello {{ controller_name }}!{% endblock %}
+{% block title %}Admin{% endblock %}
 
 {% block body %}
-<style>
-    .example-wrapper { margin: 1em auto; max-width: 800px; width: 95%; font: 18px/1.5 sans-serif; }
-    .example-wrapper code { background: #F5F5F5; padding: 2px 6px; }
-</style>
 
-<div class="example-wrapper">
-    <h1>Hello {{ controller_name }}! ✅</h1>
+    <div class="m4 jumbotron">
+        <div class="lead">
+            Hello, {{ app.user.username }}
+            {% if 'ROLE_ADMIN' in app.user.roles %}
+                <button class="btn btn-primary">Edit</button>
+            {% endif %}
+            {% if 'ROLE_EDITOR' in app.user.roles %}
+                <button class="btn btn-info">Comment</button>
+            {% endif %}
+        </div>
+        {% if app.user.firstName %}
+            <div class="h2">
+                <a href="{{ app.user.firstName }}">{{ app.user.firstName }}</a>
+                <span class="badge badge-secondary">First Name</span>
+            </div>
+        {% endif %}
+    </div>
 
-    This friendly message is coming from:
-    <ul>
-        <li>Your controller at <code><a href="{{ 'src/Controller/AdminController.php'|file_link(0) }}">src/Controller/AdminController.php</a></code></li>
-        <li>Your template at <code><a href="{{ 'templates/admin/index.html.twig'|file_link(0) }}">templates/admin/index.html.twig</a></code></li>
-    </ul>
-</div>
+
+    <div class="jumbotron">
+        <a class="btn btn-info btn-lg" href="{{ path('home') }}">My home</a>
+    </div>
 {% endblock %}
